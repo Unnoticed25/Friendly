@@ -1,6 +1,6 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './pages/main/App.tsx';
+import Layout from './pages/main/Layout.tsx';
 import './index.css';
 import {
     createBrowserRouter,
@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { Auth } from "./pages/auth/Auth";
 import { ClerkProvider } from "@clerk/clerk-react";
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -25,11 +25,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/",
-        element: <ProtectedRoute element={<App />} />, // Защита главного маршрута
+        element: <ProtectedRoute element={<Layout />} />, // Защита главного маршрута
         children: [
             {
                 path: "/main",
-                element: <App />, // Главный компонент приложения
+                element: <Layout />, // Главный компонент приложения
             },
             {
                 path: "*",

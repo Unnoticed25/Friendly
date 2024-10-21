@@ -3,6 +3,16 @@
     margin: 0;
     padding: 0;
     font-family: 'Open Sans';
+    font-size: 18px;
+
+    /*Отключение выделения текста и прочего*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 head {
@@ -34,10 +44,20 @@ hr{
     font-family: 'Open Sans';
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: #BBBBBBFF;
     background-color: #8700f6;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+}
+
+.cl-userButtonPopoverFooter{
+    display: none !important;
+}
+
+.cl-avatarBox{
+    width: 40px;
+    height: 40px;
+
 }
 

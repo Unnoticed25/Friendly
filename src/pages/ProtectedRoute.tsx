@@ -1,11 +1,10 @@
-// ProtectedRoute.tsx
 import React from 'react';
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@clerk/clerk-react";
-import LoadingIndicator from './LoadingIndicator/LoadingIndicator'; // Импортируем индикатор загрузки
+import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator.tsx';
 
 interface ProtectedRouteProps {
-    element: JSX.Element; // Ожидаем элемент, который будет отображаться
+    element: JSX.Element;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
