@@ -35,8 +35,8 @@ const ButtonIcon: React.FC<ButtonIconProps> = ({ imageUrl, onClick }) => {
                 alt="Button Icon"
                 onDragStart={(e) => e.preventDefault()}
                 style={{
-                    width: '30px',
-                    height: '30px',
+                    width: '24px',
+                    height: '24px',
                     objectFit: 'contain'
                 }}
             />

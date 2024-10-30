@@ -1,11 +1,11 @@
 import {makeStyles} from "@mui/styles";
 import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
-import ButtonIcon from "../Buttons/ButtonIcon";
 import {Box} from "@mui/material";
 import NotificationSvg from '/notification-logo.svg';
 import SettingsSvg from '/settings.svg';
 import HomeSvg from '/home.svg';
 import { useNavigate } from 'react-router-dom';
+import ButtonIcon from "../../UI/Buttons/ButtonIcon";
 
 
 export default function QuickAccessBar() {
