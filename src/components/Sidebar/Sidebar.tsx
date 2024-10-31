@@ -15,6 +15,9 @@ const useStyles = makeStyles({
         color: 'white',
         fontWeight: 'bold'
     },
+    underTitle: {
+        borderRadius: 8
+    }
 });
 
 export default function Sidebar() {
@@ -27,7 +30,7 @@ export default function Sidebar() {
                 <div className={classes.title}>
                     Friendly room
                 </div>
-                <hr/>
+                <hr className={classes.underTitle}/>
             </div>
         </>
     )

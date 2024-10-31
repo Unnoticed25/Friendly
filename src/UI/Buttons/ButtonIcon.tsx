@@ -24,9 +24,10 @@ const useStyles = makeStyles<Theme>(theme => ({
 interface ButtonIconProps {
     imageUrl: string;
     onClick: () => void;
+    title: string;
 }
 
-const ButtonIcon: React.FC<ButtonIconProps> = ({ imageUrl, onClick }) => {
+const ButtonIcon: React.FC<ButtonIconProps> = ({ imageUrl, onClick, title}) => {
     const classes = useStyles();
     return (
         <button className={classes.btn} onClick={onClick}>
@@ -39,6 +40,7 @@ const ButtonIcon: React.FC<ButtonIconProps> = ({ imageUrl, onClick }) => {
                     height: '24px',
                     objectFit: 'contain'
                 }}
+                title={title}
             />
         </button>
     );

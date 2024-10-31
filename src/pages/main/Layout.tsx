@@ -2,6 +2,7 @@ import {useState} from 'react'
 import {makeStyles} from "@mui/styles";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import QuickAccessBar from "../../components/QuickAccessBar/QuickAccessBar";
+import NotificationModal from "../../components/NotificationButton/NotificationModal";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -19,7 +20,9 @@ function Layout() {
         <>
             <div className={classes.wrapper}>
                 <Sidebar/>
-                <div style={{textAlign: "center", marginTop: 40, color: 'gray'}}>Welcome to friendly</div>
+                <div style={{textAlign: "center", marginTop: 40, color: 'gray'}}>
+                    Welcome to friendly
+                </div>
                 <QuickAccessBar/>
             </div>
         </>
