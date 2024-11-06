@@ -1,33 +1,44 @@
 import React from 'react';
-import {makeStyles} from "@mui/styles";
-
-
-const useStyles = makeStyles({
-    message: {
-        marginBottom: '10px',
-        padding: '1px',
-        borderRadius: '5px',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
-    },
-});
 
 interface Message {
-    sender: string;
     text: string;
+    senderId: string;
 }
 
 interface ChatWindowProps {
     messages: Message[];
+    currentUserId: string;
 }
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
-    const classes = useStyles();
+// Функция для форматирования текста с переносами строк
+const formatMessage = (text: string) => {
+    return text.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+            {line}
+            <br />
+        </React.Fragment>
+    ));
+};
 
+const ChatWindow: React.FC<ChatWindowProps> = ({ messages, currentUserId }) => {
     return (
-        <div className="chat-window">
+        <div>
             {messages.map((msg, index) => (
-                <div key={index} className={classes.message}>
-                    <strong>{msg.sender}:</strong> {msg.text}
+                <div key={index} style={{
+                    textAlign: msg.senderId === currentUserId ? 'right' : 'left',
+                    marginBottom: '10px'
+                }}>
+                    <div style={{
+                        display: 'inline-block',
+                        padding: '10px',
+                        borderRadius: '5px',
+                        backgroundColor: msg.senderId === currentUserId ? '#dcf8c6' : '#ffffff',
+                        maxWidth: '70%',
+                        wordWrap: 'break-word',
+                        whiteSpace: 'pre-line' // Сохраняем переносы строк
+                    }}>
+                        {formatMessage(msg.text)} {/* Форматируем сообщение */}
+                    </div>
                 </div>
             ))}
         </div>

@@ -7,20 +7,20 @@ interface MessageInputProps {
     username: string;
 }
 
-const MessageInput: React.FC<MessageInputProps> = ({ username }) => {
+const MessageInput: React.FC<MessageInputProps> = ({ username , onSendMessage, senderId}) => {
     const [message, setMessage] = useState<string>('');
 
     const sendMessage = () => {
-        if (message.trim()) { // Проверка на пустое сообщение
-            socket.emit('message', `${username}: ${message}`); // Отправляем сообщение с именем пользователя
+        if (message.trim()) {
+            socket.emit('message', `${username}: ${message}`, senderId );
             setMessage('');
         }
     };
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault(); // Предотвращаем стандартное поведение (перенос строки)
-            sendMessage(); // Отправляем сообщение
+            event.preventDefault();
+            sendMessage();
         }
     };
 
