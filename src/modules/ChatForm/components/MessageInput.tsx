@@ -1,18 +1,18 @@
-// src/components/MessageInput.tsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {TextField, Button, Box} from '@mui/material';
-import { socket } from '../../../services/socket';
+import {socket} from '../../../services/socket';
+import InputEmoji from "../../../components/InputEmoji/InputEmoji";
 
 interface MessageInputProps {
     username: string;
 }
 
-const MessageInput: React.FC<MessageInputProps> = ({ username , onSendMessage, senderId}) => {
+const MessageInput: React.FC<MessageInputProps> = ({username, onSendMessage, senderId}) => {
     const [message, setMessage] = useState<string>('');
 
     const sendMessage = () => {
         if (message.trim()) {
-            socket.emit('message', `${username}: ${message}`, senderId );
+            socket.emit('message', `${username}: ${message}`, senderId);
             setMessage('');
         }
     };
@@ -25,44 +25,46 @@ const MessageInput: React.FC<MessageInputProps> = ({ username , onSendMessage, s
     };
 
     return (
-        <div style={{ display: 'flex', padding: '10px', width: '100%' }}>
-            <TextField
-                sx={{
-                    '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                            border: 2,
-                            borderColor: 'rgb(80,80,80)',
+        <div style={{display: 'flex', padding: '10px', width: '100%'}}>
+            <Box style={{display: 'inline-flex', width: '100%', alignItems: 'center', justifyContent: 'space-between'}}>
+                <TextField
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                border: 2,
+                                borderColor: 'rgb(80,80,80)',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'rgb(190, 190, 190)',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'rgb(190, 190, 190)',
+                            },
                         },
-                        '&:hover fieldset': {
-                            borderColor: 'rgb(190, 190, 190)',
+                        '& .MuiOutlinedInput-input': {
+                            color: 'white',
                         },
-                        '&.Mui-focused fieldset': {
-                            borderColor: 'rgb(190, 190, 190)',
-                        },
-                    },
-                    '& .MuiOutlinedInput-input': {
-                        color: 'white',
-                    },
 
-                }}
-                variant="outlined"
-                fullWidth
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Type a message..."
-                multiline
-                maxRows={3}
-                minRows={1}
-            />
+                    }}
+                    variant="outlined"
+                    fullWidth
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Type a message..."
+                    multiline
+                    maxRows={3}
+                    minRows={1}
+                />
+                <InputEmoji/>
+            </Box>
             <Box
-            sx={{
-                marginLeft: '12px',
-                width: '120px',
-                display: 'flex',
-                alignContent: 'center',
-                flexWrap: 'wrap'
-            }}>
+                sx={{
+                    width: '120px',
+                    display: 'flex',
+                    alignContent: 'center',
+                    flexWrap: 'wrap'
+                }}>
                 <Button
                     style={{
                         height: 60,
