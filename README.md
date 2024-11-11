@@ -1,5 +1,6 @@
 # Friendly
 Стек: React + TypeScript + Redux + Clerk + socket.io + WebRTC + Vite
+
 Что же такое Френдли?
 ![image](https://github.com/user-attachments/assets/c97a26a3-5cc4-4607-8f9a-ed58cf073a35)
 
