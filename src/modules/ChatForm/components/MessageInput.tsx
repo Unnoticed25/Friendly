@@ -1,19 +1,23 @@
-import React, {useState} from 'react';
-import {TextField, Button, Box} from '@mui/material';
-import {socket} from '../../../services/socket';
+import React from 'react';
+import { TextField, Button, Box } from '@mui/material';
+import { socket } from '../../../services/socket';
 import InputEmoji from "../../../components/InputEmoji/InputEmoji";
+import { useDispatch, useSelector } from 'react-redux';
+import { setMessage } from '../../../store/messageSlice';
 
 interface MessageInputProps {
     username: string;
+    senderId: string;
 }
 
-const MessageInput: React.FC<MessageInputProps> = ({username, onSendMessage, senderId}) => {
-    const [message, setMessage] = useState<string>('');
+const MessageInput: React.FC<MessageInputProps> = ({ username, senderId }) => {
+    const dispatch = useDispatch();
+    const message = useSelector((state: any) => state.message.text);
 
     const sendMessage = () => {
         if (message.trim()) {
             socket.emit('message', `${username}: ${message}`, senderId);
-            setMessage('');
+            dispatch(setMessage(''));
         }
     };
 
@@ -25,8 +29,8 @@ const MessageInput: React.FC<MessageInputProps> = ({username, onSendMessage, sen
     };
 
     return (
-        <div style={{display: 'flex', padding: '10px', width: '100%'}}>
-            <Box style={{display: 'inline-flex', width: '100%', alignItems: 'center', justifyContent: 'space-between'}}>
+        <div style={{ display: 'flex', padding: '10px', width: '100%' }}>
+            <Box style={{ display: 'inline-flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
                 <TextField
                     sx={{
                         '& .MuiOutlinedInput-root': {
@@ -44,19 +48,18 @@ const MessageInput: React.FC<MessageInputProps> = ({username, onSendMessage, sen
                         '& .MuiOutlinedInput-input': {
                             color: 'white',
                         },
-
                     }}
                     variant="outlined"
                     fullWidth
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => dispatch(setMessage(e.target.value))}
                     onKeyPress={handleKeyPress}
                     placeholder="Type a message..."
                     multiline
                     maxRows={3}
                     minRows={1}
                 />
-                <InputEmoji/>
+                <InputEmoji />
             </Box>
             <Box
                 sx={{
