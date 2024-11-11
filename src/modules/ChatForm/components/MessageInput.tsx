@@ -43,10 +43,13 @@ const MessageInput: React.FC<MessageInputProps> = ({ username, senderId }) => {
                             },
                             '&.Mui-focused fieldset': {
                                 borderColor: 'rgb(190, 190, 190)',
+
                             },
                         },
                         '& .MuiOutlinedInput-input': {
                             color: 'white',
+                            marginRight: 5,
+                            zIndex: 1,
                         },
                     }}
                     variant="outlined"

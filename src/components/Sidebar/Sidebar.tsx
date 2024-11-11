@@ -11,6 +11,7 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     title:{
+        textAlign: 'center',
         fontSize: 20,
         color: 'white',
         fontWeight: 'bold'
