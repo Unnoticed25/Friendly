@@ -1,4 +1,7 @@
 import {makeStyles} from "@mui/styles";
+import React from "react";
+import {useState} from "react";
+import MembersList from "./MembersList";
 
 const useStyles = makeStyles({
     containter:{
@@ -18,12 +21,24 @@ const useStyles = makeStyles({
     },
     underTitle: {
         borderRadius: 8
+    },
+    editChannel: {
+        position: 'absolute',
+        bottom: 8,
+        color: '#b6b6b6',
+        cursor: 'pointer',
     }
 });
 
-export default function Sidebar() {
 
+
+export default function Sidebar() {
     const classes = useStyles();
+    const [isEdit, setIsEdit] = useState<boolean>(false);
+
+    const handleEditChannel: React.FC = () => {
+        setIsEdit(prev => !prev);
+    }
 
     return (
         <>
@@ -32,6 +47,18 @@ export default function Sidebar() {
                     Friendly room
                 </div>
                 <hr className={classes.underTitle}/>
+                <div>
+                    <MembersList idChannel={1234} nameChannel={'Friendly room'}/>
+                </div>
+                <div>
+                    Main channel
+                </div>
+                <div>
+                    Add channel
+                </div>
+                <div className={classes.editChannel} onClick={handleEditChannel}>
+                    Edit channel
+                </div>
             </div>
         </>
     )

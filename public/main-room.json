@@ -1,0 +1,90 @@
+{
+  "name": "Friendly Room",
+  "memberCount": 10,
+  "members": [
+    {
+      "id": "user_2niZGmWlGyVGnIG4LMztKkjdszv",
+      "name": "unnoticed25",
+      "srcImg": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ybmlaR3NVQ3JsTGdXRkNhZ0RNYVpMdU5BWXMifQ"
+    },
+    {
+      "id": "123",
+      "name": "Alex",
+      "srcImg": "me.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    },
+    {
+      "id": "12344",
+      "name": "Denny",
+      "srcImg": "woman.jpg"
+    }
+  ],
+  "channels": [
+    {
+      "id": "main",
+      "name": "Главный канал",
+      "chatHistory": [
+        {
+          "id": "12345",
+          "userId": "user_2niZGmWlGyVGnIG4LMztKkjdszv",
+          "text": "Всем привет!",
+          "timestamp": "2024-02-11T10:00:00Z"
+        },
+        {
+          "id": "12346",
+          "userId": "123",
+          "text": "Как дела?",
+          "timestamp": "2024-02-11T10:01:00Z"
+        },
+        {
+          "id": "12347",
+          "userId": "12344",
+          "text": "Отлично, рад всех видеть!",
+          "timestamp": "2024-02-11T10:02:00Z"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "allowInvites": true,
+    "defaultPermissions": {
+      "readMessages": true,
+      "sendMessages": true,
+      "addReactions": true
+    }
+  }
+}

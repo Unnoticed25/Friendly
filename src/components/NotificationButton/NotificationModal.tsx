@@ -27,8 +27,7 @@ const useStyles = makeStyles({
         width: '100%',
         display: 'flex',
         justifyContent: 'end',
-        marginTop: -12,
-        cursor: 'pointer',
+        marginTop: -12
     },
     notificationButton: {
         width: '100%',
@@ -44,7 +43,7 @@ const useStyles = makeStyles({
         borderBottom: 'solid #E1E1E1FF 1px',
         marginBottom: 12,
     },
-    notifications:{
+    notifications: {
         height: 40,
         fontSize: 14,
         textOverflow: 'ellipsis',
@@ -56,7 +55,6 @@ const useStyles = makeStyles({
     }
 });
 
-// Компонент-обертка для модального окна
 const ModalWrapper: React.FC<{ children: React.ReactNode; isOpen: boolean }> = ({children, isOpen}) => {
     const classes = useStyles({isOpen});
     return (
@@ -71,7 +69,7 @@ const NotificationModal: React.FC<{ notifications: string[]; onClose: () => void
     return (
         <ModalWrapper isOpen={true}>
             <div className={classes.modalContent}>
-                <span className={classes.close} onClick={onClose}>&times;</span>
+                <span className={classes.close}><i style={{cursor: 'pointer'}} onClick={onClose}>&times;</i></span>
                 <h2 style={{textAlign: 'center'}}>Уведомления</h2>
                 <hr className={classes.hr}/>
                 <ul>
